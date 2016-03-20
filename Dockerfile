@@ -11,5 +11,7 @@ RUN curl -sSL https://github.com/jwilder/docker-gen/releases/download/$DOCKER_GE
 
 ENV DOCKER_HOST unix:///tmp/docker.sock
 
+EXPOSE 80 443
+
 ENTRYPOINT ["/docker-entrypoint.sh"]
 RUN ["s6-svscan","/etc/s6"]
