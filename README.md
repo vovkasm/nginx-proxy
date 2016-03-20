@@ -1,8 +1,13 @@
-![nginx 1.9.6](https://img.shields.io/badge/nginx-1.9.6-brightgreen.svg) ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg) [![Build](https://circleci.com/gh/jwilder/nginx-proxy.svg?&style=shield&circle-token=2da3ee844076a47371bd45da81cf27409ca7306a)](https://circleci.com/gh/jwilder/nginx-proxy)
+![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 nginx-proxy sets up a container running nginx and [docker-gen][1].  docker-gen generates reverse proxy configs for nginx and reloads nginx when containers are started and stopped.
 
 See [Automated Nginx Reverse Proxy for Docker][2] for why you might want to use this.
+
+### Note
+
+This repo initially forked from [jwilder/nginx-proxy](https://github.com/jwilder/nginx-proxy). But I was somehow uncomfortable with internals and rewrite configs. Now it based on nginx:alpine linux repo and uses s6 supervisor. Final image is very small.
+But no tests and probably without some functionality.
 
 ### Usage
 
@@ -226,10 +231,3 @@ will be used on any virtual host which does not have a `/etc/nginx/vhost.d/{VIRT
 ### Contributing
 
 Before submitting pull requests or issues, please check github to make sure an existing issue or pull request is not already open.
-
-#### Running Tests Locally
-
-To run tests, you'll need to install [bats 0.4.0](https://github.com/sstephenson/bats).
-
-    make test
-
