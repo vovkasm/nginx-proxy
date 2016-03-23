@@ -13,5 +13,7 @@ ENV DOCKER_HOST unix:///tmp/docker.sock
 
 EXPOSE 80 443
 
+VOLUME ["/etc/nginx/certs"]
+
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["s6-svscan","-t0","/etc/s6"]
